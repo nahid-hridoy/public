@@ -1,0 +1,7 @@
+.form-section {
+  padding: 6.875rem 0;
+
+  @include media-breakpoint-up(lg) {
+    padding: 7.8125rem 0;
+  }
+}

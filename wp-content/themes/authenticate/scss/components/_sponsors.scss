@@ -1,0 +1,42 @@
+.page-head {
+  padding: 10.4375rem 0 5.125rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: 8.875rem 0;
+  }
+
+  .section-heading {
+    font-size: 1.25rem;
+    line-height: 1.15;
+    letter-spacing: 0;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.5625rem;
+    }
+  }
+}
+
+.sponsors-blocks {
+  .sponsors-section {
+    padding: 0;
+  }
+}
+
+.sponsor-item {
+  border-top: 3px solid $border-color;
+  padding-top: 1.6875rem;
+}
+
+.sponsor-category {
+  font-weight: 700;
+  display: block;
+  text-transform: uppercase;
+  font-size: $font-size-md;
+  letter-spacing: 0;
+
+  &.lg {
+    @include media-breakpoint-up(lg) {
+      font-size: 1.25rem;
+    }
+  }
+}

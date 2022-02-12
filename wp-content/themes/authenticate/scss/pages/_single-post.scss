@@ -1,0 +1,147 @@
+.post-section {
+  overflow: hidden;
+  padding-top: 10.125rem;
+  padding-bottom: 5rem;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 9.4375rem;
+    padding-bottom: 6.25rem;
+  }
+
+  &.post-section-regular {
+    padding: 2.5rem 0;
+
+    @include media-breakpoint-up(lg) {
+      padding: 3.125rem 0;
+    }
+  }
+}
+
+.feature-image {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 3.25rem;
+
+  @include media-breakpoint-up(xl) {
+    margin-bottom: 3.0625rem;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    right: -9999px;
+    bottom: 50%;
+    background-color: $primary;
+    z-index: -1;
+    transform: skewY(-6deg);
+    transform-origin: bottom center;
+
+    @include media-breakpoint-up(xl) {
+      transform: skewY(-5.8deg);
+      bottom: 49%;
+    }
+  }
+
+  .post-section-regular & {
+    padding-bottom: 99%;
+    margin-bottom: 1.875rem;
+
+    @include media-breakpoint-up(sm) {
+      padding-bottom: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 2.8125rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 3.75rem;
+    }
+
+    &:before {
+      bottom: 56%;
+      transform: skewY(-4deg);
+
+      @include media-breakpoint-up(xl) {
+        bottom: 53%;
+      }
+    }
+
+    img {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+
+      @include media-breakpoint-up(sm) {
+        position: static;
+        height: auto;
+      }
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+.post-head {
+  margin-bottom: 3rem;
+
+  .post-section-regular & {
+    margin-bottom: 1.75rem;
+
+    @include media-breakpoint-up(lg) {
+      max-width: 50%;
+      margin-bottom: 0.875rem;
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    margin-bottom: 0.9375rem;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.post-author {
+  display: block;
+  font-weight: 500;
+  font-size: 1.25rem;
+  font-style: italic;
+  text-transform: uppercase;
+  margin-bottom: 0.9375rem;
+  letter-spacing: 0;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1.875rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.post-text {
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.post {
+  margin-bottom: 3.75rem;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 5.3125rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

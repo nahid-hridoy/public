@@ -1,0 +1,268 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the common layout of the site
+// -----------------------------------------------------------------------------
+
+body {
+  background-color: $body-bg;
+  min-width: 320px;
+  position: relative;
+}
+
+.wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  padding: 0 2.0625rem;
+}
+
+a,
+button {
+  @include animate(color background opacity visibility box-shadow border);
+}
+
+h1,
+.h1 {
+  line-height: 1.125;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 1;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    font-size: 4.375rem;
+  }
+
+  @media (max-width: 374px) {
+    font-size: 1.875rem;
+  }
+}
+
+h2,
+.h2 {
+  line-height: 1.16;
+}
+
+.display-1 {
+  line-height: 1.15;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 1.325;
+  }
+}
+
+h3,
+.h3 {
+  line-height: 1.16;
+}
+
+h4,
+.h4 {
+  line-height: 1.333;
+}
+
+h6,
+.h6 {
+  line-height: 1.333;
+}
+
+.display-3 {
+  @include media-breakpoint-up(lg) {
+    font-size: 2.6875rem;
+  }
+}
+
+.display-4 {
+  line-height: 1.142;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 2.1875rem;
+  }
+}
+
+.bg-primary {
+  a:not([class]) {
+    color: currentColor;
+    text-decoration: underline;
+  }
+
+  #{$headings} {
+    a:not([class]) {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.section-heading {
+  margin-bottom: 1.875rem;
+
+  h2,
+  .h2 {
+    margin-bottom: 0.9375rem;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  .section-heading-text {
+    margin-bottom: $paragraph-margin-bottom;
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    &.width-md {
+      @include media-breakpoint-up(xl) {
+        max-width: 63%;
+      }
+    }
+
+    &.width-sm {
+      @include media-breakpoint-up(xl) {
+        max-width: 46%;
+      }
+    }
+  }
+}
+
+.lead {
+  letter-spacing: 0.06em;
+}
+
+.section-btn {
+  margin: 0 -1.25rem;
+
+  @include media-breakpoint-up(xl) {
+    margin: 0 -2rem;
+  }
+
+  &:last-child {
+    margin-bottom: -1rem;
+
+    @include media-breakpoint-up(xl) {
+      margin-bottom: -1.5rem;
+    }
+  }
+
+  .section-btn-text {
+    margin: 0 1.25rem 0.9375rem;
+
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 0 2rem 1.5rem;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .btn {
+    margin: 0 1.25rem 16px;
+
+    @include media-breakpoint-up(xl) {
+      margin: 0 2rem 1.5rem;
+    }
+  }
+}
+
+.learn-more,
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  text-transform: capitalize;
+  text-decoration: underline;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.333;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.read-more {
+  text-decoration: none;
+  letter-spacing: 0;
+
+  &:hover {
+    text-decoration: none;
+
+    [class^='icon'] {
+      &:last-child {
+        transform: translateX(10px);
+      }
+    }
+  }
+
+  [class^='icon'] {
+    font-size: 120%;
+
+    &:first-child {
+      margin-right: 0.5625rem;
+    }
+
+    &:last-child {
+      @include animate(transform);
+
+      margin-left: 0.5625rem;
+      will-change: transform;
+    }
+  }
+}
+
+.badge {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.loader {
+  @include animate(opacity visibility);
+
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+
+  .loaded & {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+.section-base {
+  padding: 100px 0;
+}
+
+.main-sidebar {
+  max-width: 400px;
+  margin: 0 auto;
+
+  @include media-breakpoint-up(xl) {
+    max-width: 100%;
+  }
+}
+
+.title-404 {
+  font-size: 80px;
+
+  @include media-breakpoint-up(md) {
+    font-size: 100px;
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 140px;
+  }
+}

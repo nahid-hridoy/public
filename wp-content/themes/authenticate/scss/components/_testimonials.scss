@@ -1,0 +1,147 @@
+.testimonial-section {
+  padding: 3.75rem 0;
+
+  @include media-breakpoint-up(md) {
+    padding: 8.75rem 0;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding: 12.5rem 0;
+  }
+
+  @include media-breakpoint-up(xxxl) {
+    padding: 15.625rem 0;
+  }
+}
+
+.testimonials {
+  &:last-child {
+    margin-bottom: -2.1875rem;
+  }
+}
+
+.testimonial {
+  background-color: $primary-light;
+  padding: 1.6875rem 2.1875rem;
+  text-align: center;
+  color: $body-color;
+  margin-bottom: 2.1875rem;
+  line-height: 1.55;
+  letter-spacing: 0;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    padding: 2.5rem 2.1875rem 1.5625rem;
+  }
+
+  .d-none & {
+    @include media-breakpoint-up(lg) {
+      font-size: 0.625rem;
+      line-height: 1.6;
+      padding: 1.6875rem 1.0625rem 0.625rem;
+    }
+
+    blockquote {
+      p {
+        @include media-breakpoint-up(lg) {
+          margin-bottom: 1.625rem;
+        }
+
+        &:before {
+          @include media-breakpoint-up(lg) {
+            font-size: 1.5rem;
+            margin-bottom: 1.125rem;
+          }
+        }
+      }
+    }
+
+    cite {
+      @include media-breakpoint-up(lg) {
+        font-size: 0.75rem;
+        margin-bottom: 0.3125rem;
+      }
+    }
+
+    .subcite {
+      font-size: 0.625rem;
+    }
+
+    .rating {
+      @include media-breakpoint-up(lg) {
+        font-size: 0.5625rem;
+        margin-left: -0.25rem;
+        margin-right: -0.25rem;
+        margin-bottom: 0.625rem;
+      }
+
+      li {
+        @include media-breakpoint-up(lg) {
+          padding: 0 0.25rem;
+        }
+      }
+    }
+  }
+
+  blockquote {
+    margin: 0;
+
+    footer {
+      > :last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    p {
+      margin-bottom: 2.0625rem;
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: 2.25rem;
+      }
+
+      &:after {
+        content: none;
+      }
+
+      &:before {
+        @extend %icon;
+
+        content: $icon-quote;
+        font-size: 2.5rem;
+        display: block;
+        margin-bottom: 1.25rem;
+      }
+    }
+  }
+
+  cite {
+    font-style: normal;
+    font-size: $font-size-md;
+    line-height: 1.5;
+    display: block;
+    font-weight: 700;
+  }
+
+  .subcite {
+    display: block;
+    font-size: 0.75rem;
+  }
+}
+
+.rating {
+  @extend %listreset;
+
+  display: flex;
+  justify-content: center;
+  margin: 0 -0.375rem 0.625rem;
+  font-size: 0.875rem;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 1.5625rem;
+  }
+
+  li {
+    padding: 0 0.375rem;
+  }
+}

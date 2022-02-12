@@ -1,0 +1,164 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the footer of the site
+// -----------------------------------------------------------------------------
+.main-footer {
+  position: relative;
+  z-index: 2;
+}
+
+.tweets-section {
+  padding: 6.25rem 0;
+
+  @include media-breakpoint-up(xxl) {
+    padding: 7.25rem 0;
+  }
+}
+
+.footer-section {
+  padding: 3.5625rem 0;
+  font-size: $font-size-md;
+  line-height: 1.125;
+  letter-spacing: 0;
+
+  @include media-breakpoint-up(xxl) {
+    padding: 7.25rem 0;
+  }
+
+  [class^='col-'] {
+    margin-bottom: 1.875rem;
+
+    @include media-breakpoint-up(md) {
+      margin-bottom: 3.75rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 5.25rem;
+    }
+
+    &:last-child,
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .social {
+    font-size: 2.875rem !important;
+    margin: 0 -0.9375rem;
+
+    @include media-breakpoint-up(lg) {
+      margin: 0 -0.5625rem;
+    }
+
+    &:last-child {
+      margin-bottom: -1.875rem !important;
+
+      @include media-breakpoint-up(lg) {
+        margin-bottom: -1.125rem !important;
+      }
+    }
+
+    li {
+      padding: 0 0.9375rem;
+      margin-bottom: 1.875rem;
+
+      @include media-breakpoint-up(lg) {
+        padding: 0 0.5625rem;
+      }
+    }
+  }
+}
+
+.footer-text {
+  padding: 0 16px;
+
+  @include media-breakpoint-up(md) {
+    padding: 0 32px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    padding: 0 48px;
+  }
+
+  > :last-child {
+    @include media-breakpoint-down(lg) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.social {
+  @extend %listreset;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 -9px;
+  font-size: 21px;
+
+  @include media-breakpoint-up(xl) {
+    font-size: 32px;
+    margin: 0 -17px;
+  }
+
+  &:last-child {
+    margin-bottom: -18px !important;
+  }
+
+  li {
+    line-height: 0;
+    padding: 0 9px;
+    margin-bottom: 18px;
+
+    @include media-breakpoint-up(xl) {
+      padding: 0 17px;
+    }
+  }
+}
+
+.footer-logo {
+  display: inline-flex;
+  width: 241px;
+  margin: 0 auto;
+  max-width: 100%;
+
+  a {
+    display: inline-block;
+    vertical-align: top;
+    color: currentColor;
+    padding: 6px 0;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  img,
+  svg {
+    width: 100%;
+  }
+
+  path {
+    fill: currentColor;
+  }
+
+  .primary-letter {
+    fill: $primary;
+  }
+}
+
+.copyright {
+  padding-top: 5px;
+
+  a {
+    color: currentColor;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}

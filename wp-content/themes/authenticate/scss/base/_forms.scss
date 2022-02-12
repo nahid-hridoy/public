@@ -1,0 +1,301 @@
+// stylelint-disable selector-no-qualifying-type, selector-max-compound-selectors
+
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the form elements of the site
+// -----------------------------------------------------------------------------
+form,
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-style: none;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'],
+textarea {
+  width: 100%;
+  min-width: 0;
+  -webkit-appearance: none;
+
+  &:focus,
+  &:hover {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.custom-control {
+  min-height: $custom-control-indicator-size;
+
+  &.custom-control-inline {
+    min-width: 135px;
+
+    @include media-breakpoint-up(md) {
+      min-width: 146px;
+    }
+  }
+
+  .custom-control-label {
+    padding-top: 0.1875rem;
+    cursor: pointer;
+  }
+}
+
+.custom-control-input {
+  height: $custom-control-indicator-size;
+}
+
+label {
+  font-size: $font-size-sm;
+  letter-spacing: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+.widget {
+  margin-bottom: 1rem;
+
+  ul {
+    padding-left: 2em;
+  }
+
+  select {
+    min-width: 150px;
+  }
+}
+
+.comment-form {
+  label {
+    display: block;
+    padding-bottom: 4px;
+  }
+
+  textarea {
+    overflow: auto;
+    margin: 0;
+    height: 120px;
+    min-height: 120px;
+  }
+
+  textarea,
+  input[type='text'] {
+    margin: 0 4px 0 0;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  input[type='submit'] {
+    display: block;
+    float: none;
+  }
+}
+
+.post-password-form {
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input[type='password'] {
+    margin: 0 0.9375rem 0.5rem 0;
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+.commentlist {
+  margin: 0 0 1rem;
+
+  .edit-link {
+    margin: 0;
+  }
+
+  .avatar-holder {
+    float: left;
+    margin: 0 1rem 4px 0;
+  }
+}
+
+.commentlist-item {
+  .commentlist-item {
+    padding: 0;
+    @include media-breakpoint-up(md) {
+      padding-left: 2rem;
+    }
+  }
+}
+
+.comment,
+.commentlist-holder {
+  overflow: hidden;
+}
+
+.commentlist-item .commentlist-item,
+.commentlist-item + .commentlist-item {
+  padding-top: 1rem;
+}
+
+.widget_calendar {
+  #next {
+    text-align: right;
+  }
+}
+
+.gallery-item {
+  dt {
+    float: none;
+    padding: 0;
+  }
+}
+
+.navigation,
+.navigation-comments {
+  position: relative;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+
+  .screen-reader-text {
+    position: absolute;
+    left: -99999px;
+  }
+}
+
+.wp-caption {
+  max-width: 100%;
+  clear: both;
+  border: 1px solid $gray;
+  padding: 0.4em;
+  margin-bottom: 1rem;
+
+  img {
+    margin: 0;
+    vertical-align: top;
+  }
+  p {
+    margin: 0.4em 0 0;
+  }
+}
+
+div.aligncenter {
+  margin: 0 auto 1rem;
+}
+
+img.aligncenter {
+  display: block;
+  margin: 0 auto;
+}
+
+.alignleft {
+  float: left;
+  margin: 0 1rem 4px 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 4px 1rem;
+}
+
+.mejs-container {
+  margin-bottom: 1rem;
+}
+
+.wp-caption-text,
+.gallery,
+.alignnone,
+.gallery-caption,
+.sticky,
+.bypostauthor {
+  height: auto;
+}
+
+iframe {
+  max-width: 100%;
+}
+
+.widget_calendar {
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  tbody {
+    td {
+      text-align: center;
+    }
+  }
+
+  td,
+  th {
+    border: 1px solid $border-color;
+    padding: 0.3125rem;
+  }
+}
+
+/* clears the 'X' from Internet Explorer */
+input[type='search']::-ms-clear,
+input[type='search']::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+  display: none;
+}
+
+// Form
+$input-selector: (
+  'input[type="email"]',
+  'input[type="number"]',
+  'input[type="password"]',
+  'input[type="search"]',
+  'input[type="tel"]',
+  'input[type="text"]',
+  'input[type="url"]',
+  'textarea',
+  'select'
+);
+
+#{$input-selector} {
+  @extend .form-control;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:focus {
+    @include placeholder {
+      opacity: 0 !important;
+    }
+  }
+
+  @include placeholder {
+    text-shadow: none !important;
+  }
+}
+
+input[type='search'],
+textarea {
+  white-space: normal !important;
+}
+
+button[type='submit'],
+input[type='submit'] {
+  min-width: 177px;
+
+  @include media-breakpoint-up(lg) {
+    min-width: 207px;
+  }
+
+  &:not([class]) {
+    @extend .btn;
+    @extend .btn-primary;
+  }
+}

@@ -1,0 +1,545 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site
+// -----------------------------------------------------------------------------
+.main-header {
+  .navbar {
+    min-width: 320px;
+    min-height: 4.375rem;
+    padding-bottom: 1.25rem;
+
+    @include media-breakpoint-up(xl) {
+      @include animate(min-height);
+
+      min-height: 6.75rem;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      padding-left: 3.125rem;
+      padding-right: 3.125rem;
+    }
+
+    .nav-link {
+      @include media-breakpoint-up(xl) {
+        @include animate(color background boredr height opacity);
+        display: flex;
+        align-items: center;
+        height: 6.75rem;
+      }
+    }
+  }
+
+  &.headroom--unpinned {
+    .navbar {
+      @include media-breakpoint-up(xl) {
+        min-height: 5rem;
+      }
+
+      .nav-link {
+        @include media-breakpoint-up(xl) {
+          height: 5rem;
+        }
+      }
+    }
+  }
+
+  .navbar-nav {
+    @include media-breakpoint-up(xl) {
+      font-weight: $font-weight-medium;
+      font-size: $font-size-sm;
+      text-transform: uppercase;
+    }
+
+    @include media-breakpoint-up(xxl) {
+      font-size: $font-size-md;
+    }
+
+    li {
+      @include media-breakpoint-up(xxl) {
+        margin-right: 0.9375rem;
+      }
+
+      @include media-breakpoint-up(xxxl) {
+        margin-right: 1.4rem;
+      }
+
+      &:last-child {
+        @include media-breakpoint-up(xxl) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .add-nav {
+    li {
+      @include media-breakpoint-up(xxxl) {
+        margin-right: 3.625rem;
+      }
+
+      &:last-child {
+        @include media-breakpoint-up(xxl) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  .navbar-collapse {
+    @include media-breakpoint-down(lg) {
+      @include animate(opacity visibility);
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      height: calc(var(--vh, 1vh) * 100);
+      padding: 5rem 0 0.625rem;
+      background-color: $primary;
+      color: $white;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .collapse-inner {
+      @include media-breakpoint-down(lg) {
+        max-height: 100vh;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0 2.1875rem;
+      }
+
+      @include media-breakpoint-up(xl) {
+        display: flex;
+        width: 100%;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+      }
+    }
+
+    &.show {
+      @include media-breakpoint-down(lg) {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &.collapsing {
+      @include media-breakpoint-down(lg) {
+        transition: none !important;
+      }
+    }
+
+    .btn-primary {
+      @include media-breakpoint-down(lg) {
+        background-color: $white;
+        color: $primary;
+        border-color: $white;
+      }
+
+      &:hover {
+        @include media-breakpoint-down(lg) {
+          color: $secondary;
+        }
+      }
+    }
+
+    .sign-up-btn {
+      font-size: $font-size-sm;
+      line-height: 1.8;
+
+      @include media-breakpoint-up(xl) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: 1rem;
+      }
+
+      @include media-breakpoint-up(xxxl) {
+        margin-left: 3rem;
+      }
+    }
+  }
+
+  .navbar-light,
+  .navbar-dark {
+    @include media-breakpoint-down(lg) {
+      background-color: unset !important;
+    }
+
+    @each $name, $color in $theme-colors {
+      &.bg-#{$name} {
+        &:after {
+          background-color: $color;
+        }
+      }
+    }
+
+    &:after {
+      @include media-breakpoint-down(lg) {
+        content: '';
+        position: absolute;
+        top: -2rem;
+        bottom: 0.4rem;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        box-shadow: 0 4px 4px 0 rgba($black, 0.25);
+        transform: skewY(-0.8deg);
+        transform-origin: center top;
+      }
+
+      @include media-breakpoint-down(sm) {
+        transform: skewY(-1.9deg);
+      }
+    }
+
+    .navbar-nav {
+      @include media-breakpoint-down(lg) {
+        margin-bottom: 1.3rem;
+      }
+
+      .nav-link {
+        @include media-breakpoint-down(lg) {
+          color: $white;
+          letter-spacing: 0.06em;
+        }
+
+        &:hover {
+          @include media-breakpoint-down(lg) {
+            color: $secondary;
+          }
+        }
+      }
+    }
+
+    .add-nav {
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+
+      .nav-link {
+        @include media-breakpoint-down(lg) {
+          color: $navbar-light-color;
+          letter-spacing: 0;
+        }
+
+        &:hover {
+          @include media-breakpoint-down(lg) {
+            color: $white;
+          }
+        }
+      }
+    }
+
+    .active {
+      > .nav-link {
+        @include media-breakpoint-down(lg) {
+          color: $secondary !important;
+        }
+      }
+    }
+  }
+}
+
+.navbar-brand {
+  position: relative;
+  z-index: 30;
+  color: currentColor;
+
+  @include media-breakpoint-up(xxl) {
+    margin-right: 3.2rem;
+  }
+
+  @include media-breakpoint-down(lg) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .navbar-logo {
+    display: block;
+    width: 145px;
+    line-height: 0;
+
+    @include media-breakpoint-up(xxl) {
+      width: 182px;
+    }
+
+    img,
+    svg {
+      width: 100%;
+    }
+  }
+
+  path {
+    fill: $secondary;
+  }
+
+  .primary-letter {
+    fill: $primary;
+  }
+}
+
+.navbar-dark {
+  path {
+    fill: $white;
+  }
+}
+
+.navbar-toggler {
+  @include size(2.5rem);
+
+  position: relative;
+  z-index: 30;
+  padding: 0;
+  border: 0;
+
+  .navbar-toggler-icon {
+    background: none;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition-duration: 0.22s;
+    top: 50%;
+    margin-top: -0.125rem;
+
+    &,
+    &:after,
+    &:before {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      height: 5px;
+      background-color: currentColor;
+      border-radius: 20px;
+    }
+
+    &:after,
+    &:before {
+      content: '';
+      transition-timing-function: ease;
+      transition-duration: 0.15s;
+    }
+
+    &:before {
+      top: -0.625rem;
+      transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+    }
+
+    &:after {
+      top: auto;
+      bottom: -0.625rem;
+      transition: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+  }
+
+  .main-header & {
+    &[aria-expanded='true'] {
+      color: $white;
+    }
+  }
+
+  &[aria-expanded='true'] {
+    .navbar-toggler-icon {
+      transition-delay: 0.12s;
+      transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform: rotate(225deg);
+
+      &:after {
+        bottom: 0;
+        transition: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+        transform: rotate(-90deg);
+      }
+
+      &:before {
+        top: 0;
+        transition: top 0.1s ease-out, opacity 0.1s ease-out 0.12s;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.navbar-open {
+  @include media-breakpoint-down(lg) {
+    overflow: hidden;
+  }
+
+  .main-header {
+    .navbar-light,
+    .navbar-dark {
+      path {
+        fill: $secondary;
+      }
+
+      .primary-letter {
+        fill: $white !important;
+        color: $white !important;
+      }
+    }
+  }
+}
+
+.add-nav {
+  .nav-link {
+    @include animate(color opacity);
+
+    color: $navbar-light-color;
+    font-weight: $font-weight-bold;
+    font-size: $font-size-sm;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(xxl) {
+      font-size: $font-size-md;
+    }
+
+    &:hover {
+      @include media-breakpoint-down(lg) {
+        color: $white;
+      }
+    }
+  }
+}
+
+.navbar-nav {
+  .nav-link {
+    @include media-breakpoint-up(xl) {
+      position: relative;
+    }
+
+    &:hover {
+      @include media-breakpoint-up(xl) {
+        &:before {
+          left: 0;
+          right: 0;
+        }
+      }
+    }
+
+    &:before {
+      @include animate(left right);
+
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      right: 50%;
+      height: 0.375rem;
+      background-color: $primary;
+    }
+  }
+}
+
+.main-header-single {
+  @include animate(transform);
+
+  &.headroom--unpinned {
+    @include media-breakpoint-up(xl) {
+      transform: translateY(-50%);
+    }
+
+    .page-nav {
+      &:before {
+        @include media-breakpoint-up(xl) {
+          border-top-color: transparent;
+          left: -999px;
+          right: -999px;
+        }
+      }
+
+      .navbar-brand {
+        opacity: 1;
+
+        @include media-breakpoint-up(xl) {
+          width: 225px;
+          padding-right: 5rem;
+        }
+
+        @include media-breakpoint-up(xxl) {
+          width: 257px;
+        }
+      }
+    }
+  }
+
+  .page-nav {
+    @include media-breakpoint-up(xl) {
+      position: relative;
+    }
+
+    &:before {
+      @include media-breakpoint-up(xl) {
+        @include animate(border-color left right);
+
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 1.8rem;
+        right: 1.8rem;
+        border: 1px solid $border-color;
+        border-width: 1px 0;
+        pointer-events: none;
+        background-color: transparent;
+      }
+
+      @include media-breakpoint-up(xxl) {
+        left: 3.125rem;
+        right: 3.125rem;
+      }
+    }
+
+    .navbar-brand {
+      @include animate(width padding);
+
+      width: 0;
+      margin-right: 0;
+      overflow: hidden;
+      opacity: 0;
+      position: relative;
+      transform-origin: left center;
+
+      &:after {
+        @include media-breakpoint-up(xl) {
+          content: '/';
+          position: absolute;
+          top: 50%;
+          right: 1.75rem;
+          transform: translateY(-50%);
+          color: $secondary;
+          font-weight: 700;
+          font-size: 1.25rem;
+          margin-top: 0.125rem;
+        }
+      }
+
+      svg {
+        width: 145px;
+        max-width: none;
+
+        @include media-breakpoint-up(xxl) {
+          width: 182px;
+        }
+      }
+    }
+
+    .page-title {
+      text-transform: uppercase;
+      font-size: 1.125rem;
+      font-weight: 700;
+      display: block;
+      letter-spacing: 0;
+      padding-top: 0.1875rem;
+
+      @include media-breakpoint-up(xxl) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}

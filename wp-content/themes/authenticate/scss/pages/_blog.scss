@@ -1,0 +1,66 @@
+.blog-section {
+  padding-top: 9.625rem;
+  overflow: hidden;
+  padding-bottom: 3.125rem;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 9.0625rem;
+  }
+
+  .section-heading {
+    position: relative;
+    color: $white;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+      right: -9999px;
+      bottom: -12.6875rem;
+      background-color: $primary;
+      z-index: -1;
+      transform: skewY(-6deg);
+      transform-origin: bottom center;
+
+      @include media-breakpoint-up(sm) {
+        bottom: -8.75rem;
+      }
+
+      @include media-breakpoint-up(xl) {
+        bottom: -12.5rem;
+        transform: skewY(-5.8deg);
+      }
+    }
+  }
+
+  .filter-toggler {
+    &:hover {
+      color: currentColor;
+    }
+  }
+
+  .navbar-filter {
+    @include media-breakpoint-up(xxl) {
+      padding: 4.125rem 0 2.5625rem;
+    }
+
+    .navbar-collapse {
+      .active {
+        .nav-link {
+          @include media-breakpoint-up(xl) {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      &:before {
+        background-color: $white;
+      }
+    }
+  }
+}

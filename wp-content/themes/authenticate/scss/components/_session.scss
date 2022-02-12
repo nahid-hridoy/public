@@ -1,0 +1,137 @@
+.session-section {
+  padding: 5.3125rem 0;
+}
+
+.sessions-wrapper {
+  padding-top: 0.75rem;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 1.125rem;
+  }
+
+  &:last-child {
+    margin-bottom: -3.125rem;
+  }
+}
+
+.session {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1 auto;
+  margin-bottom: 3.125rem;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+}
+
+.session-body {
+  background-color: $white;
+  color: $secondary;
+  padding: 1.25rem 1.25rem 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex: 1 auto;
+  position: relative;
+  z-index: 2;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5rem;
+    transform-origin: right bottom;
+    transform: skewY(-4deg);
+    background-color: $white;
+    z-index: -1;
+  }
+}
+
+.session-body-top {
+  flex: 1 auto;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.session-body-bottom {
+  padding-top: 3.125rem;
+  flex: 0 0 auto;
+
+  @include media-breakpoint-up(lg) {
+    padding-top: 2.5rem;
+  }
+}
+
+.session-meta {
+  font-size: $font-size-sm;
+  letter-spacing: 0.06em;
+  line-height: 1.357;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 -0.375rem 1.125rem;
+  overflow: hidden;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 0;
+  }
+
+  > * {
+    padding: 0 0.375rem;
+    position: relative;
+    margin-bottom: 0.8125rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0.1875rem;
+      bottom: 0.1875rem;
+      left: -0.0625rem;
+      width: 0.0625rem;
+      background-color: currentColor;
+    }
+  }
+
+  .time {
+    font-weight: 700;
+  }
+}
+
+.session-title {
+  letter-spacing: 0.06em;
+  margin-bottom: 2.1875rem;
+
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 1.25rem;
+  }
+
+  a {
+    color: currentColor;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.session-member {
+  font-size: $font-size-sm;
+  line-height: 1.4285;
+  letter-spacing: 0;
+  margin-bottom: 1.875rem;
+}
+
+.session-member-name {
+  font-weight: 700;
+  display: block;
+}
+
+.session-member-label {
+  display: block;
+}
